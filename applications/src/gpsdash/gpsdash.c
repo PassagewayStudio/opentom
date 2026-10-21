@@ -8,7 +8,9 @@
  *
  * usage: gpsdash [pipe]
  *
- * Build for the device (see gpsdash.sh for the launcher):
+ * Built by the OpenTom build (make -C applications/src/gpsdash install, after
+ * sourcing get_cross_env.sh); started by src/opentom_skel/bin/gpsdash.sh.
+ * Manual build for the device:
  *   arm-linux-gcc -O2 -o gpsdash gpsdash.c -I<sysroot>/usr/include/microwin \
  *       -L<sysroot>/usr/lib -lnano-X
  * Host self-test of the NMEA parser (no Nano-X needed):

@@ -49,8 +49,10 @@
 #define RUN_TYPE_SEPARATOR	4
 
 // Screen position of the rocket icon (= top-left corner of the menu), in pixels.
-// Override at run time:  nxmenu <config file> <x> <y>
-static int org_x = 100, org_y = 45;
+// The default (0, 0) is the top-left corner of the screen. Override at run time
+// (useful when the touchscreen does not reach the corner):
+//     nxmenu <config file> <x> <y>
+static int org_x = 0, org_y = 0;
 
 // Nombre maxi d'item visible dans un menu
 #define MAX_VISIBLE_ITEM	15
@@ -354,7 +356,7 @@ void repaint( pMenuWindow win) {
 	}
 }
 
-inline int get_item_position( int y) {
+static inline int get_item_position( int y) {
 	y = y - org_y + 1;
 	if ( y < 0) return -1;
 	return (y / app->text_h);
